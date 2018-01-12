@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="jquery-3.2.1.min.js"></script>
+  <script src="main.js"></script>
+
+
+</head>
+
+<body>
+
+  <input type="button" value="Пойти в сарай" class="button1" id="saray">
+  <input type="button" value="Пойти в лес" class="button2" id="les">
+  <input type="button" value="Пойти в теремок" class="button3" id="teremok">
+  <input type="button" value="Дать деду леща!" class="button4" id="ded">
+
+  <div id="stat">
+    <ul>
+      <li class="stat_name">
+        Жизнь :
+        <div id="stat_value_live">
+          0
+        </div>
+      </li>
+      <li class="stat_name">
+        Атака :
+        <div id="stat_value_damadge">
+          0
+        </div>
+      </li>
+      <li class="stat_name">
+        Деньги :
+        <div id="stat_value_money">
+          0
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div id="text_filed"></div>
+
+  <img class="colobock" src=kolobok.gif alt="Здесь был колобок" title="Безобидный пирожок, меня кличут Колобок!">
+  <img class="imgLes" src="Forest.png" alt="ЛЕС" title="На вид так опасное место!">
+  <img class="imgTerem" src="30716285.png" alt="Теремок" title="Тут жевет мышь! Скорее она по своей натуре крыс! Она продает всякую всячину!">
+  <img class="imgDed" src="ded.png" alt="Дед!" title="Дед суровый мужик проживший не один век!">
+  <img class="imgSrai" src="Building_barn.png" alt="Сарай" title="В сарае можно найти лут!">
+  <img id="fire" src="fire.gif">
+
+  <img id="volkImg" style="display:none" src='volk.gif'>
+  <img id="lisaImg" style="display:none" src='lisa.gif'>
+  <img id="medvedImg" style="display:none" src='medved.gif'>
+  <img id="zaetsImg" style="display:none" src='zayats.gif'>
+  <img id="belkaImg" style="display:none" src=http://animashki.org/uploads/posts/2016-06/1466699795_1330.gif>
+  <img id="yad" style="display:none" src=yad.png>
+  <img id="palka" style="display:none" src="palka.jpg">
+  <img id="kop" style="display:none" src="kop.gif">
+
+  <img id="lesch" style="display:none" src="leshh.png">
+  <img id="nozh" style="display:none" src="Knife.gif">
+  <img id="shotgun" style="display:none" src="shotgun.gif">
+  <img id="drug" style="display:none" src="drug.gif">
+
+  <div id="gameover" style="display:none">
+    <img src=https://media.giphy.com/media/AIlrItaxPyivS/giphy.gif>
+  </div>
+
+  <div id="win" style="display:none">
+    <img src="win.gif" alt="">
+  </div>
+
+  <div class="dialog" id="introJq">
+    В один прекрасный день дедушка пошел на охоту в лес и велел бабке испечь хлеба к ужину который пренесет дед, бабка поскребла
+    по сусекам и слепила колобка, поджарила его, и колобок ожил! Чуя что его вот-вот сожрет его-же создатель колобок решил
+    дать деру! Он выпал из окна и покатился куда глаза глядят!
+    <div class="BTN" id="OK">Продолжить</div>
+  </div>
+
+  <div class="dialog" id="dialogSaray">
+      Перед вами старый сарай, может вы найдете там что нибудь полезное?
+    <div class="BTN" id="inSaray">Обыскать</div>
+    <div class="BTN" id="noSaray">Уйти</div>
+  </div>
+
+  <div class="dialog" id="dialogShop">
+      <p>Привет чужак, ты находишься в магазине, выбери себе то, что пронравится!</p>
+      <p>НОЖ +10 к Атаке (10коп), ДРОБОВИК +20 к атаке (10коп), ПРОТЕИН + 20 к Жизни (30коп).</p> <p>Так-же есть ЛЕЩ, отличная закуска под пиво! (200коп)</p>
+    <div class="BTN" id="shop1">Нож</div>
+    <div class="BTN" id="shop2">Дробовик</div>
+    <div class="BTN" id="shop3">Протеин</div>
+    <div class="BTN" id="shop4">Лещ</div>
+    <div class="BTN" id="shop5">Уйти</div>
+  </div>
+
+  <div class="dialog" id="dialogLes">
+    <div class="BTN" id=""></div>
+  </div>
+
+  <div class="dialog" id="dialogDed">
+    <div class="BTN" id=""></div>
+  </div>
+
+</body>
+
+</html>
