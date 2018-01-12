@@ -1,0 +1,43 @@
+body
+{font-family: 'Source Sans Pro', sans-serif;
+font-size: 20px;
+align-self: auto;
+color: rgba(0, 0, 0, 0.774);
+}   
+
+.div1{
+    width: auto;
+    align-self: auto;
+    height: auto;
+    margin: 50px;
+    padding: 10px;
+    border: 5px;
+    opacity: 0.8;
+    color: rgb(7, 7, 7);
+    background-color: rgb(122, 108, 87);
+    border: solid rgb(141, 127, 108) 3px;
+}
+
+.div1:hover{
+    width: auto;
+    align-self: auto;
+    height: auto;
+    margin: 50px;
+    padding: 10px;
+    border: 5px;
+    opacity: 0.9;
+    color: rgb(7, 7, 7);
+    background-color: rgb(122, 108, 87);
+    border: solid rgb(141, 127, 108) 3px;
+}
+
+li {
+    text-align: right;
+    display: inline;
+
+}
+
+.li1{
+    text-decoration: none;
+    
+}
