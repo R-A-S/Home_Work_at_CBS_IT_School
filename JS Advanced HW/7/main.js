@@ -253,8 +253,3 @@ function validateForm() {
     flag = true;
   }
 }
-
-window.addEventListener("load", function () {
-
-
-});

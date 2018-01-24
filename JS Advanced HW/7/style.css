@@ -161,7 +161,6 @@ body {
   float: left;
   cursor: pointer;
 }
-
 .header ul>li:hover {
   padding: 20px 40px;
   transition: 0.5s;
@@ -169,6 +168,7 @@ body {
   float: left;
   background-color: rgba(47, 47, 47, 0.4);
 }
+
 
 .header ul {
   position: relative;

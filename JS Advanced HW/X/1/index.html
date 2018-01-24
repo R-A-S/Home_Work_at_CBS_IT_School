@@ -7,58 +7,45 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <script src="jquery-3.2.1.min.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="navbar-dropdown" data-dropdown-id="navbar-dropdown-user">
-    <p>Первая кнопка</p>
-    <div style="display: none" class="navbar-dropdown-content" id="navbar-dropdown-user">
-      <p>Контент</p>
-    </div>
-  </div>
-  <div class="navbar-dropdown" data-dropdown-id="navbar-dropdown-user2">
-    <p>Вторая кнопка</p>
-    <div style="display: none" class="navbar-dropdown-content" id="navbar-dropdown-user2">
-      <p>Контент 2</p>
-    </div>
-  </div>
-  <script>
-    // 'use strict'
-   
-    (function () {
-      alert("dsgf");
-      $(".navbar-dropdown").click(function () {
-        $(this).children("div").slideToggle();
-      });
-      $(function () {
-        $(".navbar-dropdown").hover(function () {
-          $(this).find('.foot').stop(true).slideToggle();
-        });
-      });
-      // $(".navbar-dropdown").click(function () {
-      //   var link = $(this);
-      //   var dropdown_id = "#" + $(link).data("dropdown-id");
 
-      //   $.fn.dropdownOn = function () {
-      //     $(link).addClass("is-active");
-      //     $(dropdown_id).show();
-      //     $(".navbar-dropdown").not(link).removeClass("is-active");
-      //     $(".navbar-dropdown-content").not(dropdown_id).hide();
-      //   };
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <header>
+    <nav>
+      <ul>
+        <li>
+          <a href="#">
+            <i class="fa fa-diamond"></i>
+            <br> Home </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-bolt"></i>
+            <br> Info </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-briefcase"></i>
+            <br> Work </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-heartbeat"></i>
+            <br> Contact </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-sun-o"></i>
+            <br> Gallery </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-      //   $.fn.dropdownOff = function () {
-      //     $(link).removeClass("is-active");
-      //     $(dropdown_id).hide();
-      //   };
 
-      //   if ($(link).hasClass("is-active")) {
-      //     $(this).dropdownOff();
-      //   } else {
-      //     $(this).dropdownOn();
-      //   };
-      // });
-    });
-  </script>
 </body>
 
 </html>
