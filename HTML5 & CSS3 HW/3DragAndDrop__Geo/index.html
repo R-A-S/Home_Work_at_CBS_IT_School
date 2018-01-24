@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -241,4 +242,249 @@
   </div>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DragAndDrop</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url(8379.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    header {
+      text-align: center;
+      background-color: #212121;
+      box-shadow: 0 3px 5px #111111;
+      color: #fff;
+      display: block;
+      height: 70px;
+      position: absolute;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      top: 100px;
+      display: flex;
+    }
+
+    .wrap {
+      display: inline-flex;
+      flex-wrap: wrap;
+
+      width: 70%;
+    }
+
+    .drop {
+      background-image: url(shoppingcart.png);
+      border-radius: 10px 10px 10px 10px;
+      -moz-border-radius: 10px 10px 10px 10px;
+      -webkit-border-radius: 10px 10px 10px 10px;
+      border: 0px solid #000000;
+      width: 30%;
+      background-repeat: no-repeat;
+    }
+
+    .grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .gridItem {
+      margin-bottom: 30px;
+      flex: 0 1 calc(25% - 30px * 3/4);
+      background-color: #66B032;
+      border: 0px solid #000000;
+      transition-duration: 0.3s;
+      -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+      box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+      text-align: center;
+    }
+
+    .fly {
+      margin-bottom: 30px;
+      flex: 0 1 calc(25% - 30px * 3/4);
+      background-color: #66B032;
+      border: 0px solid #000000;
+      text-align: center;
+      transition-duration: 0.3s;
+      -webkit-box-shadow: 10px 10px 67px 33px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 10px 10px 67px 33px rgba(0, 0, 0, 0.75);
+      box-shadow: 10px 10px 67px 33px rgba(0, 0, 0, 0.75);
+    }
+
+    .gridImg {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 30px;
+      background-image: url(play.png);
+      background-size: contain;
+    }
+
+    .sqr {
+      width: 200px;
+      height: 200px;
+      background: #000;
+    }
+  </style>
+  <script>
+    // dragstart - вызывается в самом начале переноса перетаскиваемого элемента.
+    // dragend - вызывается в конце события перетаскивания - как успешного, так и отмененного.
+    // dragenter - происходит в момент когда перетаскиваемый объект попадает в область целевого элемента.
+    // dragleave - происходит когда перетаскиваемый элемент покидает область целевого элемента.
+    // dragover - происходит когда перетаскиваемый элемент находиться над целевым элементом.
+    // drop - вызывается, когда событие перетаскивания завершается отпусканием элемента над целевым элементом.
+
+    //Событие по по загрузке DOM
+    window.addEventListener('DOMContentLoaded', function () {
+      //Собираем перетаскиваемые элементы
+      var items = document.querySelectorAll('section.grid > div');
+      var source = null;
+      //Функция для упрощения установки обработчиков, почти кроссбраузерная
+      function addEvent(elem, evType, fn) {
+        if (elem.addEventListener) {
+          elem.addEventListener(evType, fn, false);
+        } else if (elem.attachEvent) {
+          elem.attachEvent('on' + evType, fn)
+        } else {
+          elem['on' + evType] = fn
+        }
+      }
+
+      //Перебираем массив элементов
+      for (var i = 0; i < items.length; i++) {
+        source = items[i];
+        //устанавливаем им атрибут
+        source.setAttribute('draggable', 'true');
+
+        //привязываем обработчик на перетаскивание
+        addEvent(source, 'dragstart', function (e) {
+          e.dataTransfer.effectAllowed = 'move';
+          e.dataTransfer.setData('Text', this.id);
+          e.dataTransfer.setData("Text", this.id);
+          this.classList.remove('drag');
+          this.classList.add('fly');
+        });
+      }
+      //В поиске корзины
+      var drop = document.querySelector('section.drop');
+      //Привязываем обработчик на
+      addEvent(drop, 'dragover', function (e) {
+        if (e.preventDefault) {
+          e.preventDefault()
+        };
+        return false;
+      });
+
+
+
+      addEvent(drop, "drop", function (evt) {
+
+        // прекращаем дальнейшее распространение события по дереву DOM и отменяем возможный стандартный обработчик установленный браузером.
+        if (evt.preventDefault) evt.preventDefault();
+        if (evt.stopPropagation) evt.stopPropagation();
+
+
+        var id = evt.dataTransfer.getData("Text"); // получаем информации которая передавалась через операцию drag & drop 
+
+        var elem = document.getElementById(id);
+        elem.classList.remove('fly');
+        elem.classList.add('drag');
+        // добавляем элемент в целевой элемент. Так как в DOM не может быть два идентичных элемента - элемент удаляется со своей старой позиции.
+        this.appendChild(elem.dataset.price);
+
+        return false;
+      }, false);
+
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>Тянибросайвкорзину</h1>
+  </header>
+  <div class="container">
+    <section class="grid">
+      <div class="gridItem drag" id="drag1" data-price="25">
+        <div class="gridImg sqr"></div>
+        <h1>Title</h1>
+        <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit!</p>
+      </div>
+      <div class="gridItem drag" id="drag2" data-price="25">
+        <div class="gridImg sqr"></div>
+        <h1>Title</h1>
+        <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit!</p>
+      </div>
+      <div class="gridItem drag" id="drag3" data-price="25">
+        <div class="gridImg sqr"></div>
+        <h1>Title</h1>
+        <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit!</p>
+      </div>
+      <div class="gridItem drag" id="drag4" data-price="25">
+        <div class="gridImg sqr"></div>
+        <h1>Title</h1>
+        <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit!</p>
+      </div>
+      <div class="gridItem drag" id="drag5" data-price="25">
+        <div class="gridImg sqr"></div>
+        <h1>Title</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.!</p>
+      </div>
+      <div class="gridItem drag" id="drag6" data-price="25">
+        <div class="gridImg sqr"></div>
+        <h1>Title</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.!</p>
+      </div>
+      <div class="gridItem drag" id="drag7" data-price="25">
+        <div class="gridImg sqr"></div>
+        <h1>Title</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.!</p>
+      </div>
+      <div class="gridItem drag" id="drag8" data-price="25">
+        <div class="gridImg sqr"></div>
+        <h1>Title</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.!</p>
+      </div>
+      <div class="gridItem drag" id="drag9" data-price="25">
+        <div class="gridImg sqr"></div>
+        <h1>Title</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.!</p>
+      </div>
+      <div class="gridItem drag" id="drag10" data-price="25">
+        <div class="gridImg sqr"></div>
+        <h1>Title</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.!</p>
+      </div>
+      <div class="gridItem drag" id="drag11" data-price="25">
+        <div class="gridImg sqr"></div>
+        <h1>Title</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.!</p>
+      </div>
+      <div class="gridItem drag" id="drag12" data-price="25">
+        <div class="gridImg sqr"></div>
+        <h1>Title</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.!</p>
+      </div>
+    </section>
+    <section class="drop" id="drop"></section>
+  </div>
+</body>
+
+>>>>>>> fca00c427da20103b351904b5abf52dc2534fdce
 </html>
