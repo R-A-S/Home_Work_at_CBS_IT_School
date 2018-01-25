@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    document.write("<H2>1 Задание</H2>");
+    var array = [56, 3, 49, 37, 23, 82, 100, 1, 65, 84];
+
+    var array_br = array.join(" | ");
+    document.write("Массив : " + array_br + " <br/>");
+
+    // Максимальное значение массива
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] > array[0]) {
+        array[0] = array[i];
+      }
+    }
+    document.write("Максимальное значение массива : " + array[0] + "<br>");
+    array[0] = 56;
+
+    //  Минимальное значение массива
+    var min = 0
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] < array[0]) {
+        array[0] = array[i];
+      }
+    }
+    document.write("Минимальное значение массива : " + array[0] + "<br>");
+    array[0] = 56;
+
+    // Общая сумма значений массива
+    var sum = 0;
+    for (var i = 0; i < array.length; i++) {
+      sum = sum + array[i];
+    }
+    document.write("Общая сумма значений массива : " + sum + "<br>");
+
+    // Среднее арифметическое значений массива
+    var ar = sum / array.length;
+    document.write("Среднее арифметическое значений массива : " + ar + "<br>");
+
+    // Нечетные значения массива
+    var n_even = [];
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] % 2 != 0) {
+        n_even = n_even.concat(array[i]);
+      }
+    }
+    document.write("Нечетные значения массива :" + n_even + "<br>");
+    document.write("<br><br><hr/><br><br>")
+
+    document.write("<H2>2 Задание</H2>");
+    // Шахматная доска (без шпаргалки не повторю :) )
+    var array_2d = Array(5);
+    for (i = 0; i < array_2d.length; i++) {
+      array_2d[i] = new Array(5)
+    }
+    for (var row = 0; row < array_2d.length; row++) {
+      for (var data = 0; data < array_2d[row].length; data++) {
+        if ((row + data) % 2 == 1)
+          array_2d[row][data] = "<img src='2.jpg' width='50' height='50'/>";
+        else
+          array_2d[row][data] = "<img src='1.jpg' width='50' height='50'/>";
+        document.write(array_2d[row][data]);
+      }
+      document.write("<br>");
+    }
+
+
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

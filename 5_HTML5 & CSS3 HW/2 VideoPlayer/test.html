@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Slider + Play/Pause</title>
+
+  <script>
+    "use strict";
+    /*function playMusic() {
+           document.getElementById("mediaClip").play();
+       }*/
+    var mediaClip = document.getElementbyId("mediaClip");
+    var volume1 = document.getElementbyId("volume1");
+
+    function playPause() {
+      var mediaClip = document.getElementById("mediaClip");
+      if (mediaClip.paused) {
+        mediaClip.play();
+      } else {
+        mediaClip.pause();
+      }
+    }
+
+    function change() {
+      var button1 = document.getElementById("button1");
+      if (button1.value === "Play") button1.value = "Pause";
+      else button1.value = "Play";
+    }
+
+    function setVolume() {
+      var mediaClip = document.getElementById("mediaClip");
+mediaClip.volume = document.getElementById("volume1").value;
+
+    }
+  </script>
+</head>
+
+<body>
+  <audio id="mediaClip" src="takeMeToChurchHozier.mp3" controls>
+    <p>Your browser does not support the audio element</p>
+  </audio>
+  <br/>
+  <input onclick="change();playPause()" type="button" value="Play" id="button1">
+  <br/>
+  <input type="range" oninput="setVolume()" id='volume1' min=0 max=1 step=0.01 value='1'>
+</body>
+
+</html>
