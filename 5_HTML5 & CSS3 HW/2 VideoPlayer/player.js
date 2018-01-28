@@ -71,8 +71,16 @@ window.addEventListener('DOMContentLoaded', function () {
     if (video.muted) {
       video.muted = false;
       volume.value = video.volume;
-      volumeBtn.classList.add('volume_1', 'volume_2', 'volume_3');
-      volumeBtn.classList.remove('volume_0');
+      if (video.volume > 0.0 && video.volume <= 0.33) {
+        volumeBtn.classList.add('volume_1');
+        volumeBtn.classList.remove('volume_0', 'volume_2', 'volume_3');
+      } else if (video.volume > 0.33 && video.volume <= 0.66) {
+        volumeBtn.classList.add('volume_2');
+        volumeBtn.classList.remove('volume_0', 'volume_1', 'volume_3');
+      } else if (video.volume > 0.66 && video.volume <= 1) {
+        volumeBtn.classList.add('volume_3');
+        volumeBtn.classList.remove('volume_0', 'volume_1', 'volume_2');
+      }
     } else {
       video.muted = true;
       volume.value = 0;
