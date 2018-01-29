@@ -71,7 +71,7 @@ window.addEventListener('DOMContentLoaded', function () {
     if (video.muted) {
       video.muted = false;
       volume.value = video.volume;
-      if (video.volume > 0.0 && video.volume <= 0.33) {
+      if (video.volume >= 0.0 && video.volume <= 0.33) {
         volumeBtn.classList.add('volume_1');
         volumeBtn.classList.remove('volume_0', 'volume_2', 'volume_3');
       } else if (video.volume > 0.33 && video.volume <= 0.66) {
@@ -104,7 +104,7 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   });
   //Обработчик полноэкранного режима
-  addEvent(fullscreen, 'click', function toggleFullScreen() {
+  addEvent(fullscreen, 'click', function () {
     if (!document.mozFullScreen && !document.webkitFullScreen && !document.FullScreen) {
       if (video.requestFullscreen) {
         video.requestFullscreen();
@@ -126,10 +126,10 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   });
   //Вишенка ::
-  addEvent(playerContainer, 'mouseover', function toggleFullScreen() {
+  addEvent(playerContainer, 'mouseover', function () {
     videoNavigation.style.display = 'block';
   });
-  addEvent(playerContainer, 'mouseout', function toggleFullScreen() {
+  addEvent(playerContainer, 'mouseout', function () {
     videoNavigation.style.display = 'none';
   });
 });
