@@ -12,8 +12,7 @@ window.addEventListener('DOMContentLoaded', function () {
   var source = null;
   var sum = document.getElementById('sum');
   var sumary = document.getElementById('sumary');
-  var totalPrice = 0,
-    totalQuantity = 0;
+  var totalPrice = 0, totalQuantity = 0;
   var clear = document.getElementById('clear');
   var drop = document.getElementById('drop');
   var cart = {}; //объект заказа
@@ -40,7 +39,7 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  //Перебираем массив элементов
+  //Перебираем массив элементов для привязки dragstart и вешаем обработчик
   for (var i = 0; i < items.length; i++) {
     source = items[i];
     //устанавливаем им атрибут
@@ -72,7 +71,7 @@ window.addEventListener('DOMContentLoaded', function () {
     return false;
   });
 
-  // В этом обрабочике творится магия
+  //В этом обрабочике творится магия или чертичто :)
   addEvent(drop, 'drop', function (evt) {
     // прекращаем дальнейшее распространение события по дереву DOM и отменяем возможный стандартный обработчик установленный браузером.
     if (evt.preventDefault) evt.preventDefault();

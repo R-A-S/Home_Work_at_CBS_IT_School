@@ -5,7 +5,12 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row;
   flex-flow: row;
   min-height: 100%;
   text-align: center;
@@ -14,12 +19,22 @@ body {
 header {
   text-align: center;
   background-color: #212121;
+  -webkit-box-shadow: 0 3px 5px #111111;
   box-shadow: 0 3px 5px #111111;
   color: #fff;
   margin: 0 0 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
   flex: 1;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
   flex-flow: row wrap;
 }
 
@@ -29,19 +44,34 @@ footer {
   background-color: #212121;
   padding: 20px 0;
   text-align: center;
+  -webkit-box-shadow: 0 3px 5px #111111;
   box-shadow: 0 3px 5px #111111;
   color: #fff;
   margin: 0 0 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
   flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column wrap;
   flex-flow: column wrap;
 }
 
 .container {
   height: auto;
   top: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column wrap;
   flex-flow: column wrap;
   width: calc(100% - 310px);
 }
@@ -54,6 +84,7 @@ footer {
   background-size: contain;
   float: left;
 }
+
 .sumary {
   width: 65%;
   height: 200px;
@@ -62,42 +93,62 @@ footer {
 }
 
 .drop {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 300px;
   flex: 1 300px;
   margin: 3px;
   background: #00000050;
 }
 
 .grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 250px;
   flex: 1 1 250px;
+  min-height: -webkit-fit-content;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
 }
 
 .gridItem {
   margin-bottom: 30px;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 1 calc(20% - 30px * 2/5);
   flex: 0 1 calc(20% - 30px * 2/5);
   background-color: #85c657b3;
   border: 1px solid #000000;
+  -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   text-align: center;
   min-width: 250px;
   min-height: 320px;
   padding: 15px 0 0 0;
-  
 }
 
 .fly {
   margin-bottom: 30px;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 1 calc(20% - 30px * 2/5);
   flex: 0 1 calc(20% - 30px * 2/5);
   background-color: #85cf51e6;
   border: 1px solid #000000;
   text-align: center;
+  -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
+  -webkit-box-shadow: 10px 10px 67px 33px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 67px 33px rgba(0, 0, 0, 0.75);
   min-width: 250px;
   min-height: 320px;
+  -webkit-transform: scale(1.05);
   transform: scale(1.05);
 }
 
