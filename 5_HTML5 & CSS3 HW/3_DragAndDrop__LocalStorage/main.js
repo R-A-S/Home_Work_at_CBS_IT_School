@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', function () {
   var totalPrice = 0,
     totalQuantity = 0;
   var clear = document.getElementById('clear');
-  var drop = document.querySelector('section.drop');
+  var drop = document.getElementById('drop');
   var cart = {}; //объект заказа
   //Если есть сохраненный заказ, возвращаем его на место
   if (window.localStorage.cartData) {
@@ -56,7 +56,7 @@ window.addEventListener('DOMContentLoaded', function () {
     });
   }
   //Попытка вернуть класс при неудачном перетаскивании не увенчалась успехом :)
-  addEvent(window, 'mouseup', function (e) {
+  addEvent(document, 'mouseup', function (e) {
     for (var i = 0; i < items.length; i++) {
       if (items[i].classList.contains('fly')) {
         items[i].classList.remove('fly');
