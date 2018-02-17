@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="taskListApp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>ToDo List</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
+
+</head>
+
+<body style="overflow-x: hidden" ng-controller="taskListCtrl">
+
+  <div class="container">
+    <div class="row">
+      <div class="page-header">
+        <h1>
+          TO-DO List
+        </h1>
+        <h3>Сейчас: {{date | date:'HH:mm dd.MM.yyyy'}}. Задачи - {{(data.tasks | filter : {done : 'false'}).length}}/{{data.tasks.length}}
+          </h3>
+      </div>
+    </div>
+
+
+    <div class="row form-group">
+      <div class="form-group row col-lg-12">
+        <label for="name-input" class="col-4 col-form-label">Название задачи: </label>
+        <div class="col-8">
+          <input type="text" name="taskName" id="name-input" class="form-control" placeholder="Название" ng-model="taskName">
+        </div>
+      </div>
+
+      <div class="form-group row col-xs-12 col-md-6">
+        <label for="date-input" class="col-4 col-form-label">Дата: </label>
+        <div class="col-8">
+          <input class="form-control" type="date" value="" id="date-input" ng-model="taskDate">
+        </div>
+      </div>
+
+      <div class="form-group row col-xs-12 col-md-6">
+        <label for="time-input" class="col-4 col-form-label">Время</label>
+        <div class="col-8">
+          <input class="form-control" type="time" value="" id="time-input" ng-model="taskTime">
+        </div>
+      </div>
+
+      <div class="form-group col-12">
+        <textarea class="form-control" name="" id="" rows="5" style="resize: none;" placeholder="Описание задачи" ng-model="taskDescription"></textarea>
+      </div>
+
+      <span class="input-group-btn col-12">
+        <button class="btn btn-default " ng-click="addNewTask()">Добавить задачу</button>
+      </span>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th class="col-6">Название</th>
+              <th class="col-2">Дата</th>
+
+              <th class="col-2">Время</th>
+              <th class="col-1"></th>
+              <th class="col-1">Выполнена</th>
+            </tr>
+          </thead>
+          <tbody ng-repeat="task in data.tasks">
+            <tr>
+              <td class="col-6">{{task.name}}</td>
+              <td class="col-2">{{task.date | date:'dd.MM.yyyy'}}</td>
+              <td class="col-2">{{task.time | date:'HH:mm'}}</td>
+              <td class="col-1">
+                <input type="checkbox" ng-model="task.done" />
+              </td>
+              <td class="col-1">
+                <span style="{{setStyle(task.done)}}">{{showText(task.done)}}</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="col-2">Описание:</td>
+              <td class="col-10">{{task.description}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="row">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <script src="angular.min.js"></script>
+  <script src="todo.js"></script>
+</body>
+
+</html>
