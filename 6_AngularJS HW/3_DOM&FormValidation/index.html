@@ -1,13 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="formApp">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  
+
+<body ng-controller="defaultCtrl" class="bg-dark text-white">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="text-center mb-5">Форма регистрации</h2>
+        <div class="col-md-6 offset-md-3">
+          <hr class="mb-5">
+          <div class="card text-white bg-secondary mb-3">
+            <div class="card-header text-white bg-dark mb-3">
+              <h3 class="mb-0 text-center">Регистрация</h3>
+            </div>
+            <div class="card-body">
+              <form class="form" role="form" name="myForm" novalidate ng-submit="addNewUser(newUser)">
+                <div class="form-group">
+                  <label for="inputName">Имя пользователя</label>
+                  <input type="text" name="userName" class="form-control" id="inputName" ng-model="newUser.name" ng-minlength="3" ng-maxlength="15"
+                    required>
+                  <div class="error" ng-show="myForm.userName.$invalid && myForm.userName.$dirty">
+
+                    <span ng-show="myForm.userName.$error.required">
+                      Поле не должно быть пустым
+                    </span>
+                    <span ng-show="myForm.userName.$error.maxlength">
+                      Максимум 15 символов
+                    </span>
+                    <span ng-show="myForm.userName.$error.minlength">
+                      Минимум 3 символа
+                    </span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail">E-mail</label>
+                  <input type="email" name="userEmail" class="form-control" id="inputEmail" required ng-model="newUser.email">
+                  <div class="error" ng-show="myForm.userEmail.$invalid && myForm.userEmail.$dirty">
+                    <span ng-show="myForm.userEmail.$error.email">
+                      Введите праивльный email
+                    </span>
+                    <span ng-show="myForm.userEmail.$error.required">
+                      Поле не должно быть пустым
+                    </span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword">Пароль</label>
+                  <input type="password" name="userPass" class="form-control" id="inputPassword" required ng-change="confirm(newUser.pass)"
+                    ng-model="newUser.pass" ng-minlength="3">
+                  <div class="error" ng-show="myForm.userPass.$invalid && myForm.userPass.$dirty">
+
+                    <span ng-show="myForm.userPass.$error.required">
+                      Поле не должно быть пустым
+                    </span>
+                    <span ng-show="myForm.userPass.$error.minlength">
+                      Минимум 3 символа
+                    </span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputVerify">Подтверждение пароля</label>
+                  <input type="password" name="userPassConfirm" class="form-control" id="inputVerify" required ng-model="newUser.passConfim"
+                    ng-pattern="newUser.pass">
+                  <div class="error" ng-show="myForm.userPassConfirm.$invalid && myForm.userPassConfirm.$dirty">
+                    <span ng-show="myForm.userPassConfirm.$error.required">
+                      Поле не должно быть пустым
+                    </span>
+                    <span ng-show="myForm.userPassConfirm.$error.pattern">
+                      Пароли должны совпадать
+                    </span>
+                  </div>
+
+                </div>
+                <div class="form-check form-check-inline mb-2">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="inputAgree" id="inputAgree" value="checkedValue" ng-model="newUser.agreed"
+                      required>
+                    <a href="#" class="text-white">Согласен с правилами</a>
+                  </label>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-success btn-lg float-right" ng-disabled="myForm.$invalid">Зарегистрироваться</button>
+                </div>
+              </form>
+            </div>
+            <div class="card-footer text-white bg-secondary pb-3">
+              <div class="well">
+                <span class="summary" ng-class="myForm.$valid ? 'ng-valid' : 'ng-invalid'"> • </span>{{message}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="bootstrap.min.js"></script>
+  <script src="angular.min.js"></script>
+  <script src="main.js"></script>
 </body>
+
 </html>

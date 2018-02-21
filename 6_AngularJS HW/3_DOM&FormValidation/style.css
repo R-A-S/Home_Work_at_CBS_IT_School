@@ -1,0 +1,35 @@
+form .ng-invalid-required.ng-dirty {
+    background-color: lightpink;
+    transition: 1s;
+}
+
+form .ng-invalid-email.ng-dirty {
+    background-color: lightgoldenrodyellow;
+    transition: 1s;
+}
+
+form .ng-valid.ng-dirty {
+    background-color: lightgreen;
+    transition: 1s;
+}
+
+span.summary.ng-invalid {
+    color: red;
+    transition: 1s;
+}
+
+span.summary.ng-valid {
+    color: green;
+    transition: 1s;
+}
+
+div.error,
+.pass {
+    color: red;
+    transition: 1s;
+}
+
+span.ng-invalid {
+    color: red;
+    transition: 1s;
+}

@@ -1,5 +1,5 @@
 var model = [{
-    q: 'Выберите директиву, которую можно использовать для двунаправленной привязки.<br> ',
+    q: 'Выберите директиву, которую можно использовать для двунаправленной привязки. ',
     a1: 'ng-model-template',
     a2: 'ng-template',
     a3: 'ng-bind',
@@ -17,7 +17,7 @@ var model = [{
     id: '2'
   },
   {
-    q: 'Какая из директив использует AJAX запрос на сервер ?<br> ',
+    q: 'Какая из директив использует AJAX запрос на сервер ? ',
     a1: 'ng-switch',
     a2: 'ng-include!',
     a3: 'ng-ajax',
@@ -35,7 +35,7 @@ var model = [{
     id: '4'
   },
   {
-    q: 'Для того чтобы отменить привязку используется директива<br> ',
+    q: 'Для того чтобы отменить привязку используется директива ',
     a1: 'ng-no-model',
     a2: 'ng-cancel-bind',
     a3: 'ng-non-bindable!',
@@ -44,27 +44,31 @@ var model = [{
     id: '5'
   }
 ];
-var testApp = angular.module('testApp', []).controller('testCtrl', function ($scope) {
+var testApp = angular
+  .module('testApp', [])
+  .controller('testCtrl', function ($scope) {
+    $scope.questions = model;
+    $scope.url = '';
 
-  $scope.questions = model;
-  $scope.url = '';
+    $scope.check = [];
+    $scope.checked = false;
+    $scope.radio = false;
+    $scope.checkAll = function (i) {
+      if ($scope.q.v === i) {
+        $scope.check.push($scope.q.id);
+        console.log(i);
+        console.log($scope.q.id);
+      }
+      $scope.i = true;
+     
+    };
 
-  $scope.check = [];
-  $scope.checkAll = function (i) {
-    if ($scope.q.v === i) {
-      $scope.check.push($scope.q.id);
-      console.log(i);
-      console.log($scope.q.id);
-    }
+    $scope.showList = function (i) {
 
-  };
-
-
-
-  $scope.showList = function (i) {
-    $scope.q = $scope.questions[i];
-    $scope.url = 'page.html';
-
-  };
-
-});
+      $scope.checked = false;
+      $scope.check = false;
+      $scope.q = $scope.questions[i];
+      $scope.url = 'page.html';
+    };
+    $scope.count = $scope.check.lenght;
+  });
