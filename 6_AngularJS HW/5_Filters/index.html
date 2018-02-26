@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> Filters </title>
+  <link rel="shortcut icon" href="./lib/icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="./lib/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="card row">
+      <div class="card-header">
+        <h3>Дневник</h3>
+      </div>
+      <div class="card-body col input-group-text">
+
+        
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Поиск</span>
+              </div>
+              <input type="text" class="form-control" placeholder="..." aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+
+        <div class="input-group">
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01">Фильтр</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                  <option selected>...</option>
+                  <option value="1">Дата</option>
+                  <option value="2">По возрастанию</option>
+                  <option value="3">По убыванию</option>
+                </select>
+              </div>
+
+
+
+        </div>
+      </div>
+      <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+                <div class="input-group">
+                    <input class="btn " type="date" name="" id="" value="{{curentDate | date: dd.MM.YY}}" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button">Сохранить</button>
+                    </div>
+                  </div>
+            </span>
+          </div>
+          <textarea class="form-control" aria-label="With textarea"></textarea>
+        </div>
+
+    </div>
+    <div class="card row">sdfsdf</div>
+  </div>
+
+
+
+  <script src="./lib/jquery-3.3.1.min.js"></script>
+  <script src="./lib/popper.min.js"></script>
+  <script src="./lib/bootstrap.min.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>

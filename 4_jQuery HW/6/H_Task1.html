@@ -1,109 +1,10 @@
-<<<<<<< HEAD
-﻿<!DOCTYPE html>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Домашняя работа</title>
-    <script src="jquery-3.2.1.min.js"></script>
-    <script>
-        // По наведению
-        // $(function () {
-        //     $("div.wrap").hover(function () {
-        //         $(this).find('.foot').stop(true).slideToggle();
-        //     });
-        // });
-        // По клику
-        $(function () {
-            $(".head").click(function (e) {
-                $(".foot").not($(this).next()).slideUp();
-                $(this).next().slideToggle();
-            });
-
-            $(document).click(function (e) {
-                if (!$(".wrap").is(e.target) && $(".wrap").has(e.target).length === 0) {
-                    $(".foot").slideUp();
-                }
-            });
-        });
-    </script>
-    <style>
-        .head {
-            width: 200px;
-            height: 50px;
-            background-color: rgba(50, 50, 50, 0.8);
-        }
-
-        .foot {
-            width: 200px;
-            height: 150px;
-            background-color: rgba(50, 50, 50, 0.8);
-            top: 0px;
-            display: none;
-        }
-
-        .wrap {
-            position: relative;
-            float: left;
-            padding: 1px;
-            text-align: center;
-            color: rgb(255, 255, 255);
-        }
-
-        ul {
-            margin: 0;
-            padding: 0;
-            min-width: 200px;
-            list-style-type: none;
-        }
-    </style>
-</head>
-
-<body>
-
-    <div class="wrap">
-        <div class="head">Первый пункт</div>
-        <div class="foot">
-            <ul>
-                <li>Раз</li>
-                <br>
-                <li>Два</li>
-                <br>
-                <li>Три</li>
-            </ul>
-        </div>
-    </div>
-    <div class="wrap">
-        <div class="head">Второй пункт</div>
-        <div class="foot">
-            <ul>
-                <li>Раз</li>
-                <br>
-                <li>Два</li>
-                <br>
-                <li>Три</li>
-            </ul>
-        </div>
-    </div>
-    <div class="wrap">
-        <div class="head">Третий пункт</div>
-        <div class="foot">
-            <ul>
-                <li>Раз</li>
-                <br>
-                <li>Два</li>
-                <br>
-                <li>Три</li>
-            </ul>
-        </div>
-    </div>
-
-</body>
-
-=======
-﻿<!DOCTYPE html>
-<html>
-
-<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
     <title>Домашняя работа</title>
     <script src="jquery-3.2.1.min.js"></script>
     <script>
@@ -114,19 +15,18 @@
             });
         });
         // По клику
-        $(function () {
-            $(".head").click(function (e) {
-                $(".foot").not($(this).next()).slideUp();
-                $(this).next().slideToggle();
-                e.stopPropagation();
-            });
-            $(".foot").click(function (e) {
-                e.stopPropagation();
-            });
-            $(document).click(function () {
-                $(".foot").slideUp();
-            });
-        });
+        // $(function () {
+        //     $(".head").click(function (e) {
+        //         $(".foot").not($(this).next()).slideUp();
+        //         $(this).next().slideToggle();
+        //     });
+
+        //     $(document).click(function (e) {
+        //         if (!$(".wrap").is(e.target) && $(".wrap").has(e.target).length === 0) {
+        //             $(".foot").slideUp();
+        //         }
+        //     });
+        // });
     </script>
     <style>
         .head {
@@ -159,6 +59,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="wrap">
@@ -199,5 +100,5 @@
     </div>
 
 </body>
->>>>>>> fca00c427da20103b351904b5abf52dc2534fdce
+
 </html>
