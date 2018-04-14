@@ -5,19 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
+    <title>Modal Test</title>
+    <link rel="shortcut icon" href="./lib/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="modalTest.css">
 
 </head>
 
-<body ng-controller="testCtrl">
-    {{check}}
+<body ng-controller="testCtrl" class="bg-dark text-white">
+    <div class="container">
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary justify-content-center" data-toggle="modal" data-target="#exampleModalCenter">
-        Пройти тест
-    </button>
+    <h1>В черной черной комнате, за черным черным столом нужно пройти черный черный тест...</h1>
+        <button type="button" class="btn btn-primary col-12" data-toggle="modal" data-target="#exampleModalCenter">
+            <h3>Бежать!!!</h3>
+        </button>
+
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -25,61 +27,23 @@
             <div class="modal-content">
                 <div class="modal-header bg-dark text-white">
                     <h5 class="modal-title col-3" id="exampleModalLongTitle">Тест</h5>
-                    <div class="btn-group mr-5 col-6" role="group" aria-label="First group">
-                        <button type="button" class="btn btn-success" ng-click="showList(0)" ng-model="but0" ng-disabled="{{but0}}"> 1 </button>
-                        <button type="button" class="btn btn-success" ng-click="showList(1)" ng-model="but1" ng-disabled="{{but1}}"> 2 </button>
-                        <button type="button" class="btn btn-success" ng-click="showList(2)" ng-model="but2" ng-disabled="{{but2}}"> 3 </button>
-                        <button type="button" class="btn btn-success" ng-click="showList(3)" ng-model="but3" ng-disabled="{{but3}}"> 4 </button>
-                        <button type="button" class="btn btn-success" ng-click="showList(4)" ng-model="but4" ng-disabled="{{but4}}"> 5 </button>
+                    <div class="btn-group mr-5 col-6" role="group" aria-label="First group" >
+                        <button type="button" class="btn btn-success" ng-click="showList($index)" ng-disabled="(qestion.disabled)" ng-repeat="qestion in questions"> {{qestion.id}} </button>
+
                     </div>
                     <div class="btn-group col2" role="group" aria-label="Second group">
-                        <button type="button" class="btn btn-info">Завершить</button>
+                        <button type="button" class="btn btn-info" ng-click="result()">Результаты</button>
                     </div>
                     <button type="button" class="close  col-1" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <ng-include src="url"></ng-include>
-                <!-- <div class="modal-body">
-                    Level 1: .col-sm-9 Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, aspernatur veritatis esse deleniti
-                    ipsa doloribus assumenda explicabo repellat magnam. Facilis.
 
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <div class="row">
-                        <ul class="list-group col-12 ml-2 ">
-                            <li class="list-group-item">
-                                <label for="">
-                                    <input id="switch1" name="switch" type="radio" />
-                                    <span class="ml-2"> Lorem ipsum dolor sit amet consectetur adipisicing elit. A, commodi. Lorem ipsum dolor
-                                        sit, amet consectetur adipisicing elit. Fuga cumque est quisquam</span>
-                                </label>
-                            </li>
-                            <li class="list-group-item">
-                                <label for="">
-                                    <input id="switch2" name="switch" type="radio" />
-                                    <span class="ml-2"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga cumque est quisquam</span>
-                                </label>
-                            </li>
-                            <li class="list-group-item">
-                                <label for="">
-                                    <input id="switch3" name="switch" type="radio" />
-                                    <span class="ml-2"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga cumque est quisquam</span>
-                                </label>
-                            </li>
-                            <li class="list-group-item">
-                                <label for="">
-                                    <input id="switch4" name="switch" type="radio" />
-                                    <span class="ml-2"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga cumque est quisquam</span>
-                                </label>
-                            </li>
-                        </ul>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
-
+</div>
 
     <script src="jquery-3.3.1.min.js"></script>
     <script src="bootstrap.min.js"></script>

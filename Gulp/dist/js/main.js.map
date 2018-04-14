@@ -1,0 +1,1 @@
+{"version":3,"sources":["components/1.js"],"names":["console","log"],"mappings":"AAAAA,QAAAC,IAAA,UACAD,QAAAC,IAAA","file":"main.js","sourcesContent":["console.log('333.js');\r\n"]}
