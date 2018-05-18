@@ -23,6 +23,5 @@ gulp.task('img', function() {
 });
 
 gulp.task('img:watch', function() {
-  gulp.watch(cnf.src.img.noCompress, ['img']);
-  gulp.watch(cnf.src.img.compress, ['img']);
+  gulp.watch('src/img/**/*.*', ['img']);
 });
