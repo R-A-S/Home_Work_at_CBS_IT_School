@@ -19,7 +19,7 @@ $('.features-items').flickity({
   // options
   cellAlign: 'left',
   contain: true,
-  prevNextButtons: false,
+  prevNextButtons: false
   // wrapAround: true
 });
 

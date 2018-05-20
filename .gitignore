@@ -37,8 +37,8 @@ ehthumbs.db
 Thumbs.db
 .gitignore
 
-Landing/
-Gulp/
-dif/
+/Landing
+/Gulp
+/dif
 less.min.js
-.git/
+/.git
